@@ -1,0 +1,6 @@
+npx create-nx-workspace@latest .
+nx add @nx/express
+nx g @nx/express:app api-gateway --directory=apps/api-gateway --e2eTestRunner=none
+npm i express-http-proxy
+npm i cors morgan express-rate-limit swagger-ui-express axios cookie-parser
+npm i --save-dev @types/cors
