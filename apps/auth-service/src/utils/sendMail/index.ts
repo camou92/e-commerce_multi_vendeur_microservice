@@ -22,6 +22,7 @@ const renderEmailTemplate = async (
 ): Promise<string> => {
   const templatePath = path.join(
     process.cwd(),
+    "apps",
     "auth-service",
     "src",
     "utils",
@@ -45,5 +46,6 @@ export const sendEmail = async(to:string, subject:string, templateName:string, d
     return true
   } catch (error){
     console.log("Error sending email", error)
+    return false
   }
 }

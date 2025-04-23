@@ -43,3 +43,7 @@ Thumbs.db
 
 test-output
 note
+
+# Next.js
+.next
+out
