@@ -44,7 +44,21 @@ app.get('/gateway-health', (req, res) => {
   res.send({ message: 'Welcome to api-gateway!' });
 });
 
-app.use("/", proxy("http://localhost:6001"));
+
+app.use("/", proxy("http://localhost:6001", {
+  proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+    proxyReqOpts.headers = proxyReqOpts.headers || {};
+
+    // Transmettre les cookies manuellement
+    if (srcReq.headers.cookie) {
+      proxyReqOpts.headers["cookie"] = srcReq.headers.cookie;
+    }
+
+    return proxyReqOpts;
+  },
+}));
+
+
 
 const port = process.env.PORT || 8080;
 const server = app.listen(port, () => {
