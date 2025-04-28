@@ -47,3 +47,4 @@ note
 # Next.js
 .next
 out
+.env
