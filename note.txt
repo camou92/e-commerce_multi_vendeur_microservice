@@ -8,3 +8,5 @@ npm i --save-dev @types/cors
 npm i swagger-autogen
 
 nx g @nx/next:app apps/seller-ui
+
+nx g @nx/express:app product-service --directory=apps/product-service --e2eTestRunner=none
